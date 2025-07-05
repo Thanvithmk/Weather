@@ -7,6 +7,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import SunnyIcon from '@mui/icons-material/Sunny';
 import "./card.css"
+import { alignContent } from '@mui/system';
 
 export default function InfoBox({info}){
     const hot_url="https://media.istockphoto.com/id/1410976365/photo/woman-suffering-from-heat-wave.jpg?s=612x612&w=0&k=20&c=90gobf2VeODfmSQEZpkQNKCNxVVLI6oal4BfuMqDUlQ="
@@ -23,15 +24,20 @@ export default function InfoBox({info}){
         else return <AcUnitIcon/>;
     };
     return(
-        <div className="InfoBox">
-            <h2>Weather information</h2>
-             <Card sx={{ maxWidth: 500 }}>
+
+    <div style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "70vh",
+  }}>
+        <Card sx={{ width: "500px" }}>
       <CardMedia
         sx={{ height: 150 }}
         image={getImage()}
         title="green iguana"
       />
-      <CardContent>
+      <CardContent style={{ alignContent: "center" }}>
         <Typography gutterBottom variant="h5" component="div">
           {info.city} {getIcon()}
         </Typography>
@@ -39,8 +45,11 @@ export default function InfoBox({info}){
           <div className='card_cont'>
             <p>Temperature : {info.temp}</p>
             <p>Humidity : {info.humidity}</p>
-            <p>Min Temp : {info.temp_min}</p>
-            <p>Max Temp : {info.temp_max}</p>
+            <span>
+            Min Temp : {info.temp_min}  &nbsp;&nbsp;&nbsp;
+            Max Temp : {info.temp_max}
+            </span>
+            
             <p>Feels like : {info.feelsLike}</p>
             <p>Weather can be described as {info.weather}</p>
           </div>
