@@ -1,11 +1,13 @@
-import './App.css'
-import SearchBox from './searchBox'
+
+import './App.css';
+import WeatherApp from './Weather_App';
+
 function App() {
-//website :https://mui.com/material-ui/react-button/
   return (
     <>
-    <SearchBox/>
+      <WeatherApp />
     </>
-  )
+  );
 }
-export default App
+
+export default App;
